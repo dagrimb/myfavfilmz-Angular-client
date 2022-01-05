@@ -165,7 +165,7 @@ export class FetchApiDataService {
     }
 
     // Non-typed response extraction
-    private extractResponseData(res: any): any { 
+    private extractResponseData(res: Response | Object): any { 
       const body = res;
       return body || { };
     }
