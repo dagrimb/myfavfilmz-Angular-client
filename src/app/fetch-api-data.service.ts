@@ -180,5 +180,3 @@ export class FetchApiDataService {
       return throwError(() => new Error('Something bad happened; please try again later.'));
     }
   }
-
-
