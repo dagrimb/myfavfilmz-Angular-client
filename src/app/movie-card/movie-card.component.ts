@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FetchApiDataService } from '../fetch-api-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MovieDetailsComponent } from '../movie-details/movie-details.component';
+import { MovieDirectorComponent } from '../movie-director/movie-director.component';
+import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-movie-card',
@@ -7,8 +15,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog,
+    public router: Router,
+    public snackBar: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
   }
+
+  openMovieGenreDialog(image: any, name: string, description: string, source: string): void {
+    this.dialog.open(MovieGenreComponent, {
+      data: { image, name, description, source},
+      height: '400px',
+      width: '600px'
+    });
+  }
+
+  openMovieDirectorDialog(image: any, name: string, birth: number, death: number, bio: string, 
+  source: string): void {
+    this.dialog.open(MovieDirectorComponent, {
+      data: { image, name, birth, death, bio, source},
+      height: '400px',
+      width: '600px'
+    });
+  }
+
+  openMovieSynopsisDialog(title: string, description: any, source: string, year: number, score: 
+  string): void {
+    this.dialog.open(MovieDetailsComponent, {
+      data: { title, description, source, year, score},
+      height: '400px',
+      width: '600px',
+    });
+  }
+
+  
+
+
+
+
+
+
 }
