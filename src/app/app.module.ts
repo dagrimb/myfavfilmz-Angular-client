@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 // server-side
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -15,12 +16,42 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent} from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserNavigationComponent } from './user-navigation/user-navigation.component';
+import { MovieGenreComponent } from './movie-genre/movie-genre.component';
+import { MovieDirectorComponent } from './movie-director/movie-director.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
+const appRoutes: Routes = [ // define welcome routes that will point to components
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: 'user', component: UserProfileComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    MovieCardComponent,
+    WelcomePageComponent,
+    UserProfileComponent,
+    UserNavigationComponent,
+    MovieGenreComponent,
+    MovieDirectorComponent,
+    MovieDetailsComponent,
+    DeleteProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +62,15 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
     BrowserAnimationsModule,
     MatDialogModule,
     MatInputModule,
+    MatGridListModule,
     MatCardModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]
