@@ -1,1 +1,29 @@
+<mat-grid-list [style.width]="'95%'">  
+  <button mat-icon-button 
+    color="dark" 
+    [mat-dialog-close]="true"
+    [style.position]="'absolute'"
+    [style.top]="'-2rem'"
+    [style.right]="'-3rem'"  
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <div fxLayout="row wrap">
+    <mat-card>
+      <div>
+        <mat-card-header
+          [style.color]="'blue'"
+          [style.margin]="'0rem'"
+        >
+          <mat-card-title color="primary">{{data.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content color="primary">{{data.description}} 
+          <a className="label" href={{data.source}}>(source)</a>  
+        </mat-card-content>
+        <mat-card-content color="primary">Year Released: {{data.year}}</mat-card-content>
+        <mat-card-content color="primary">Rotten Tomatoes score: {{data.score}}</mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+</mat-grid-list>
 

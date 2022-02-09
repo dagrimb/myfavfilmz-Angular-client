@@ -1,0 +1,27 @@
+<mat-grid-list>
+  <button mat-icon-button 
+    [mat-dialog-close]="true">
+    <mat-icon>
+    </mat-icon>
+  </button>
+    <mat-dialog-content>
+      <mat-card [style.color]="'blue'">
+      <mat-card-header
+        [style.justify-content]="'center'"
+      >
+        <mat-card-title
+          [style.font-size]="'3rem'"
+          [style.margin]="'2rem'"
+        >{{data.name}}
+      </mat-card-title>
+      </mat-card-header>
+        <img src={{data.image}} />
+        <mat-card-content
+          [style.font-size]="'1rem'"
+          [style.line-height]="'1.6'"
+        >{{data.description}}
+          <a className="label" href="{{data.source}}">(see more)</a>
+        </mat-card-content>
+    </mat-card>
+    </mat-dialog-content>
+</mat-grid-list>

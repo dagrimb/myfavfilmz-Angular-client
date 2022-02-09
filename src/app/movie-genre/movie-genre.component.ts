@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FetchApiDataService } from '../fetch-api-data.service';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-movie-genre',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-genre.component.scss']
 })
 export class MovieGenreComponent implements OnInit {
-
-  constructor() { }
+  movie: any = {};
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: {image: any, name: string, description: string, source: string},
+    public fetchApiData: FetchApiDataService
+    ) {}
 
   ngOnInit(): void {
   }
+  
 }
