@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent implements OnInit {
+  movies: any[] = []; // declare movies state as array where movies returned are stored
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -23,6 +24,7 @@ export class MovieCardComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.getMovies();
   }
 
   openMovieGenreDialog(image: any, name: string, description: string, source: string): void {
@@ -51,7 +53,15 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  
+  // function for fetching movies from FetchApiDataService
+  getMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+      this.movies = resp;
+      console.log(this.movies);
+      return this.movies;
+    });
+  }
+
 
 
 

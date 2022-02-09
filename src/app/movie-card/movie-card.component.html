@@ -1,0 +1,73 @@
+<div 
+  [style.display]="'flex'" 
+  [style.margin]="'auto'"
+  [style.max-width]="'75%'"
+>
+  <mat-card *ngFor="let movie of movies;" 
+    [style.margin]="'8rem 0rem'"
+    [style.padding]="'5rem'"
+    [style.text-align]="'center'"
+    [style.background-color]="'black'"
+  >
+    <mat-card-header style="margin-bottom: 1rem">
+      <mat-card-title 
+        [style.border-bottom]="'0.15rem solid blue'"
+        [style.line-height]="'1.5'"
+        [style.color]="'white'"
+      >{{movie.Title}}
+      </mat-card-title>
+      <mat-card-subtitle [style.color]="'white'" [style.width]="'175px'">Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+    </mat-card-header>
+  <mat-card-content 
+    [style.display]="'flex'"
+    [style.align-items]="'center'"
+    [style.color]="'blue'"
+    [style.height]="'50%'"
+    [style.width]="'80%'"
+  >
+    <div style="height: 100%"></div>
+    <img
+      src={{movie.ImagePath}} 
+      alt={{movie.Title}} [style.width.%]="100" [style.height.%]="100"/>
+  </mat-card-content>
+  <mat-card-actions 
+    [style.box-shadow]="'0 2px 3px #222'"
+    [style.min-width]="'350px'"
+  >
+    <button
+      mat-button
+      (click)="openMovieGenreDialog(movie.Genre.ImagePath, movie.Genre.Name, movie.Genre.Description, movie.Genre.Source) "
+      [style.margin-right]="'0rem'"
+      [style.margin-top]="'0rem'"
+      [style.background-color]="'white'"
+      [style.color]="'blue'"      
+    >
+    Genre
+    </button>
+    <button
+      mat-button
+      (click)="openMovieDirectorDialog(movie.Director.ImagePath, movie.Director.Name, movie.Director.Birth, movie.Director.Death, 
+      movie.Director.Bio, movie.Director.Source)"
+      [style.margin-right]="'0rem'"
+      [style.margin-top]="'0rem'"
+      [style.padding]="'0'"
+      [style.background-color]="'white'"
+      [style.color]="'blue'"    
+    >
+      Director
+    </button>
+    <button
+    mat-button
+    (click)="openMovieSynopsisDialog(movie.Title, movie.Description.Synopsis, movie.Description.Source, movie.Year, 
+    movie.Rotten_Tomatoes_score)"
+    [style.margin-right]="'0rem'"
+    [style.margin-top]="'0rem'"
+    [style.padding]="'0'"
+    [style.background-color]="'white'"
+    [style.color]="'blue'"    
+    >
+  Synopsis
+</button>
+</mat-card-actions>
+</mat-card>
+</div>
