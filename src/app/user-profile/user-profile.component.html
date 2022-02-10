@@ -1,0 +1,115 @@
+<app-user-navigation></app-user-navigation>
+  <div
+    [style.background-color]="'black'"
+  >
+    <div
+      [style.display]="'flex'"
+    > 
+      <mat-card [style.background-color]="'black'"
+      >
+        <mat-grid-list cols="4">
+          <div>
+            <div>
+                <mat-card
+                  [style.padding]="'0rem 0rem'"
+                  [style.justify-content]="'center'"
+                  [style.align-items]="'center'"
+                  [style.margin-bottom]="'2rem'"
+                  [style.height]="'25rem'"
+                  [style.margin-top]="'25rem'"
+                  [style.background-color]="'black'"
+                  [style.display]="'flex'"
+                >
+                  <mat-card-header 
+                    [style.flex-direction]="'column'"
+                    [style.color]="'white'"
+                    [style.margin]="'0rem 5rem'"
+                    >
+                    <mat-card-title 
+                      [style.margin-bottom]="'3rem'"
+                      [style.font-size]="'1.5rem'"
+                    >{{user.Username}}'s Profile</mat-card-title>
+                    <mat-card-content
+                      [style.line-height]="'2'" 
+                      [style.height]="'35rem'"
+                      [style.color]="'white'"
+                      [style.font-size]="'1.25rem'"
+                      [style.margin-left]="'5rem'"
+                    >
+                      <mat-card-content
+                        [style.font-size]="'1.25rem'"
+                        [style.line-height]="'2'" 
+                        [style.background-color]="'black'"
+                        [style.display]="'block'"
+                      >Username: {{user.Username}}</mat-card-content>
+                      <mat-card-content
+                        [style.font-size]="'1.25rem'"
+                        [style.line-height]="'1'" 
+                        [style.background-color]="'black'"
+                        [style.display]="'block'"
+                      >Password: ***</mat-card-content>
+                      <mat-card-content
+                        [style.line-height]="'2'" 
+                        [style.font-size]="'1.25rem'"
+                        [style.background-color]="'black'"
+                        [style.display]="'block'"
+
+                      >Email: {{user.Email}}</mat-card-content>
+                      <mat-card-content
+                        [style.font-size]="'1.25rem'"
+                        [style.background-color]="'black'"
+                        [style.display]="'block'"
+                      >DOB: {{ user.Birthday | date: "MM/dd/yyyy":"UTC" }}</mat-card-content>
+                    </mat-card-content>
+                  </mat-card-header>
+                  <div></div>
+                  <div></div>
+                </mat-card>
+        <div>
+          <button
+            mat-raised-button
+            [style.color]="'white'"
+            [style.width]="'40%'"
+            [style.font-size]="'1rem'"
+            [style.background-color]="'blue'"
+          >
+          Edit Profile
+          </button>
+          <button
+            mat-raised-button
+            [style.color]="'white'"
+            [style.width]="'40%'"
+            [style.font-size]="'1rem'"
+            [style.background-color]="'blue'"
+          >
+          Delete Profile
+          </button>
+          <button 
+            [style.height]="'2rem'"
+            [style.background-color]="'blue'"
+            [style.color]="'white'"
+          
+          >Back to Home</button>
+        </div>
+        <div>
+          <h1
+            [style.margin-top]="'2rem'"
+            [style.padding-top]="'3rem'"
+          >Your Favorites</h1>
+          <div>
+            <div
+              [style.display]="'flex'"
+              [style.flex-wrap]="'wrap'"
+            >
+              <mat-card-header>
+              </mat-card-header>
+              <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-grid-list>
+  </mat-card>
+  </div>
+</div>

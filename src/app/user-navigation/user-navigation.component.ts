@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-user-navigation',
@@ -7,8 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserNavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router,
+    public snackBar: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
   }
+
+  viewProfile(): void {
+    this.router.navigate(['user'])
+  }
+
+
 }
