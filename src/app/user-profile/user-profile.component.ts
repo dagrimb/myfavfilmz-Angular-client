@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+import { DeleteProfileComponent } from '../delete-profile/delete-profile.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,7 +16,8 @@ export class UserProfileComponent implements OnInit {
   
   constructor(
     public fetchApiData: FetchApiDataService,
-    public router: Router
+    public router: Router,
+    public dialog: MatDialog,
     ) { }
 
   ngOnInit(): void {
@@ -28,5 +32,20 @@ export class UserProfileComponent implements OnInit {
     }
   )
 }
+
+openEditProfileDialog(): void {
+  this.dialog.open(EditProfileComponent, {
+    height: '400px',
+    width: '600px'
+  });
+}
+
+openDeleteProfileDialog(): void {
+  this.dialog.open(DeleteProfileComponent, {
+    height: '400px',
+    width: '600px'
+  });
+}
+
 
 }
