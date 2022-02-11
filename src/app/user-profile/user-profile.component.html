@@ -5,7 +5,9 @@
     <div
       [style.display]="'flex'"
     > 
-      <mat-card [style.background-color]="'black'"
+      <mat-card 
+        [style.background-color]="'black'"
+        [style.width]="'100%'"
       >
         <mat-grid-list cols="4">
           <div>
@@ -90,28 +92,58 @@
             [style.height]="'2rem'"
             [style.background-color]="'blue'"
             [style.color]="'white'"
-          
+            (click)="backHome()"
           >Back to Home</button>
         </div>
-        <div>
+        <div [style.margin-top]="'3rem'">
           <h1
             [style.margin-top]="'2rem'"
             [style.padding-top]="'3rem'"
+            [style.color]="'white'"
           >Your Favorites</h1>
-          <div>
-            <div
-              [style.display]="'flex'"
-              [style.flex-wrap]="'wrap'"
+            <mat-grid-list cols="4">
+            <mat-card *ngFor="let favorite of favorites"
+              [style.width]="'20%'"
+              [style.text-align]="'center'"
             >
-              <mat-card-header>
+              <mat-card-header [style.justify-content]="'center'">
+                <mat-card-title>{{favorite.Title}}</mat-card-title>
+                <mat-card-subtitle>Directed by: {{favorite.Director.Name}} </mat-card-subtitle>
               </mat-card-header>
               <div></div>
-              </div>
-            </div>
-          </div>
+              <img src="{{ favorite.ImagePath }}" alt="{{favorite.Title}}" [style.width.%]="75" [style.height.%]="50"/>
+              <mat-card-actions
+                [style.width]="'100%'"
+              >
+                <button
+                  mat-button
+                  (click)="openMovieGenreDialog(favorite.Genre.ImagePath, favorite.Genre.Name, 
+                  favorite.Genre.Description, favorite.Genre.Source) "
+                >
+                  Genre
+                </button>
+                <button
+                  mat-button
+                  (click)="openMovieDirectorDialog(favorite.Director.ImagePath, favorite.Director.Name, favorite.Director.Birth, favorite.Director.Death, 
+                  favorite.Director.Bio, favorite.Director.Source)"
+                >
+                  Director
+                </button>
+                <button
+                  mat-button
+                  (click)="openMovieSynopsisDialog(favorite.Title, favorite.Description.Synopsis, favorite.Description.Source, favorite.Year, favorite.Rotten_Tomatoes_score)"
+                >
+                  Synopsis
+                </button>
+                <button mat-icon-button>
+                  <mat-icon aria-label="heart icon">favorite</mat-icon>
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-list>
         </div>
       </div>
-    </mat-grid-list>
-  </mat-card>
-  </div>
-</div>
+    </div>
+    
+
+
