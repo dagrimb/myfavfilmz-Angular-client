@@ -22,5 +22,12 @@ export class UserNavigationComponent implements OnInit {
     this.router.navigate(['user'])
   }
 
+  logoutUser(): void {
+    localStorage.clear();
+    this.snackBar.open('You have ended your session', 'OK'
+    );
+    this.router.navigate(['welcome'])
+  }
+
 
 }
