@@ -15,6 +15,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = []; // declare movies state as array where movies returned are stored
+  user: any = localStorage.getItem('user');
+  favorites: any[] = [];
+
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -25,6 +28,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getUserFavorites();
   }
 
   openMovieGenreDialog(image: any, name: string, description: string, source: string): void {
@@ -62,10 +66,38 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  getUserFavorites(): void {
+    this.fetchApiData.getUser(this.user).subscribe((res: any) => {
+      this.favorites = res.FavoriteMovies;
+      return this.favorites;
+      });
+  }
 
 
 
 
+  addUserFavorite(movieID: string): void {
+    this.fetchApiData.addFavoriteMovie(this.user, movieID).subscribe((response: any) => {
+      this.favorites = response;
+      this.snackBar.open(`This movie has been added to your favorites!`, 'OK', {
+        duration: 2000,      
+      });
+      return this.getUserFavorites();
+    });
+  }
 
+  removeUserFavorite(movieID: string): void {
+    this.fetchApiData.deleteFavoriteMovie(movieID).subscribe((response: any) => {
+      this.favorites = response;
+      this.snackBar.open(`This movie has been removed from your favorites!`, 'OK', {
+        duration: 2000,      
+      });
+      return this.getUserFavorites();
+    });
+  }
+
+  favoriteMovie(movieId: any): any {
+    return (this.favorites.includes(movieId) ? true : false)
+  }
 
 }

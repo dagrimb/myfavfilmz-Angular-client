@@ -103,7 +103,7 @@
           >Your Favorites</h1>
             <mat-grid-list cols="4">
             <mat-card *ngFor="let favorite of favorites"
-              [style.width]="'20%'"
+              [style.width]="'35%'"
               [style.text-align]="'center'"
             >
               <mat-card-header [style.justify-content]="'center'">
@@ -135,9 +135,8 @@
                 >
                   Synopsis
                 </button>
-                <button mat-icon-button>
-                  <mat-icon aria-label="heart icon">favorite</mat-icon>
-                </button>
+                <mat-icon (click)="removeFavorite(favorite._id)" class="favorite-button-active"
+                [style.background-color]="'white'" [style.color]="'blue'">favorite</mat-icon>
               </mat-card-actions>
             </mat-card>
           </mat-grid-list>

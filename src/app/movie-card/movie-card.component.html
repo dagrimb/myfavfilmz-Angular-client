@@ -69,6 +69,10 @@
     >
   Synopsis
 </button>
+  <mat-icon *ngIf="!favoriteMovie(movie._id)" (click)="addUserFavorite(movie._id)" class="favorite-button"
+  [style.background-color]="'white'">favorite_border</mat-icon>
+  <mat-icon *ngIf="favoriteMovie(movie._id)" (click)="removeUserFavorite(movie._id)" class="favorite-button-active"
+  [style.background-color]="'white'" [style.color]="'blue'">favorite</mat-icon>
 </mat-card-actions>
 </mat-card>
 </div>

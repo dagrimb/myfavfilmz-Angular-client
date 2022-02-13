@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { DeleteProfileComponent } from '../delete-profile/delete-profile.component';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
 import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -16,13 +18,17 @@ import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
 })
 
 export class UserProfileComponent implements OnInit {
-  user: any = localStorage.getItem('user');  // delcare user variable us object where user data will be stored
+  user: any = {};  // delcare user variable us object where user data will be stored
   favorites: any = [];
+  movies: any[] = [];
+  displayed: any[] = [];
+  existingFaves: any[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public router: Router,
     public dialog: MatDialog,
+    public snackBar: MatSnackBar,
     ) { }
 
   ngOnInit(): void {
@@ -35,8 +41,8 @@ export class UserProfileComponent implements OnInit {
     this.fetchApiData.getUser(sessionUser!).subscribe((response: any) => {
       this.user = response;
       console.log(response);
-    }
-  )
+      this.getMovies();
+    });
 }
 
 openEditProfileDialog(): void {
@@ -53,20 +59,6 @@ openDeleteProfileDialog(): void {
   });
 }
 
-
-getUserFavorites(): void {
-  let faves: any [] = [];
-  this.fetchApiData.getAllMovies().subscribe((response: any) => {
-    faves = response;
-    faves.forEach((fave: any) => {
-      if (this.user.FavoriteMovies.includes(fave._id)) {
-        this.favorites.push(fave);
-      }
-    });
-  });
-  console.log(this.favorites);
-  return this.favorites;
-}
 
 
 
@@ -100,6 +92,47 @@ backHome(): void {
   this.router.navigate(['movies'])
 }
 
+getUserFavorites(): void {
+  this.fetchApiData.getUser(localStorage.getItem('user')).subscribe((res: any) => {
+    this.existingFaves = res.FavoriteMovies;
+    return this.existingFaves;
+    });
+}
 
+getMovies(): void {
+  this.fetchApiData.getAllMovies().subscribe((resp: any) => {
+    this.displayed = resp;
+    return this.retrieveFaves();
+  });
+}
+
+retrieveFaves(): void {
+    this.displayed.forEach((movie: any) => {
+      if (this.existingFaves.includes(movie._id)) {
+        this.favorites.push(movie);
+      }
+    });
+  console.log(this.favorites);
+  return this.favorites;
+}
+
+removeUserFavorite(movieID: string): void {
+  this.fetchApiData.deleteFavoriteMovie(movieID).subscribe((response: any) => {
+    this.favorites = response;
+    this.snackBar.open(`This movie has been removed from your favorites!`, 'OK', {
+      duration: 2000,      
+    });
+    window.location.reload();
+    return this.getUserFavorites();
+  });
+}
+
+  removeFavorite(movieID: string): void {
+    this.removeUserFavorite(movieID);
+  }
 
 }
+
+
+
+
