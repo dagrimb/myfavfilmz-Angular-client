@@ -6,6 +6,7 @@
   [style.margin-bottom]="'1rem'"
 >
   <mat-card-title>Update Your Info Below</mat-card-title>
+  <mat-card-subtitle>Please complete ALL fields, including whatever you would like to change, below.</mat-card-subtitle>
 </mat-card-header>
 <mat-card-content>
   <form
@@ -19,7 +20,7 @@
       <input
         matInput
         [(ngModel)]="userData.Username"
-        placeholder="Username"
+        placeholder="Enter current or desired username"
         type="text"
         name="Username"
         required
@@ -33,7 +34,7 @@
         matInput
         [(ngModel)]="userData.Password"
         type="password"
-        placeholder="Password"
+        placeholder="Enter current or desired password"
         name="Password"
         required
       >
@@ -46,7 +47,7 @@
         matInput
         [(ngModel)]="userData.Email"
         type="email"
-        placeholder="Email"
+        placeholder="Enter current or desired email address"
         name="Email"
         required
       >
@@ -71,6 +72,7 @@
     color="primary"
     [style.background-color]="'blue'"
     [style.color]="'white'"
+    (click)="editUserInfo()"
   >
     Confirm
   </button>

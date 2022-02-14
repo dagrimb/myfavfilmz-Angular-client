@@ -12,7 +12,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class EditProfileComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' }; // define component's input/user data
-
+ 
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { onSuccess: () => void },
@@ -23,4 +23,16 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  editUserInfo():void {
+    this.fetchApiData.editUser(this.userData).subscribe((response) => {
+      localStorage.setItem('user', response.Username);
+      this.snackBar.open('Your account has been updated', 'OK')
+      })
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
+
+
 }
