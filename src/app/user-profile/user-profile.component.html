@@ -14,13 +14,10 @@
             <div>
                 <mat-card
                   [style.padding]="'0rem 0rem'"
-                  [style.justify-content]="'center'"
                   [style.align-items]="'center'"
-                  [style.margin-bottom]="'2rem'"
                   [style.height]="'25rem'"
                   [style.margin-top]="'25rem'"
                   [style.background-color]="'black'"
-                  [style.display]="'flex'"
                 >
                   <mat-card-header 
                     [style.flex-direction]="'column'"
@@ -49,7 +46,7 @@
                         [style.line-height]="'1'" 
                         [style.background-color]="'black'"
                         [style.display]="'block'"
-                      >Password: ***</mat-card-content>
+                      >Password: ***********</mat-card-content>
                       <mat-card-content
                         [style.line-height]="'2'" 
                         [style.font-size]="'1.25rem'"
@@ -67,13 +64,14 @@
                   <div></div>
                   <div></div>
                 </mat-card>
-        <div>
+        <div [style.text-align]="'center'">
           <button
             mat-raised-button
             [style.color]="'white'"
-            [style.width]="'40%'"
+            [style.width]="'30%'"
             [style.font-size]="'1rem'"
             [style.background-color]="'blue'"
+            [style.margin-right]="'1rem'"
             (click)="openEditProfileDialog()"
           >
           Edit Profile
@@ -81,17 +79,21 @@
           <button
             mat-raised-button
             [style.color]="'white'"
-            [style.width]="'40%'"
+            [style.width]="'30%'"
             [style.font-size]="'1rem'"
             [style.background-color]="'blue'"
             (click)="openDeleteProfileDialog()"
           >
           Delete Profile
           </button>
+        </div>
+        <div [style.text-align]="'center'">
           <button 
+            mat-raised-button
             [style.height]="'2rem'"
             [style.background-color]="'blue'"
             [style.color]="'white'"
+            [style.margin-top]="'1rem'"
             (click)="backHome()"
           >Back to Home</button>
         </div>
@@ -101,45 +103,71 @@
             [style.padding-top]="'3rem'"
             [style.color]="'white'"
           >Your Favorites</h1>
-            <mat-grid-list cols="4">
-            <mat-card *ngFor="let favorite of favorites"
-              [style.width]="'35%'"
+          <div [style.background-color]="'black'">
+            <div fxLayout="row wrap" fxLayoutGap="grid">
+              <div 
+                *ngFor="let favorite of favorites;"
+                fxFlex.xs="100%" 
+                fxFlex.sm="50%"
+                fxFlex.md="33%"
+                fxFlex.lg="25%"
+                [style.margin-top]="'1rem'"
+              >
+            <mat-card
               [style.text-align]="'center'"
+              [style.background-color]="'black'"
+
             >
               <mat-card-header [style.justify-content]="'center'">
                 <mat-card-title>{{favorite.Title}}</mat-card-title>
                 <mat-card-subtitle>Directed by: {{favorite.Director.Name}} </mat-card-subtitle>
               </mat-card-header>
               <div></div>
-              <img src="{{ favorite.ImagePath }}" alt="{{favorite.Title}}" [style.width.%]="75" [style.height.%]="50"/>
+              <img src="{{ favorite.ImagePath }}" alt="{{favorite.Title}}" [style.width.%]="70" [style.height]="'20rem'">
               <mat-card-actions
                 [style.width]="'100%'"
               >
+              <button
+              mat-button
+              (click)="openMovieSynopsisDialog(favorite.Title, favorite.Description.Synopsis, favorite.Description.Source, favorite.Year, favorite.Rotten_Tomatoes_score)"
+              [style.margin-right]="'0rem'"
+              [style.margin-top]="'0rem'"
+              [style.padding]="'0'"
+              [style.background-color]="'white'"
+              [style.color]="'blue'"  
+              >
+              Synopsis
+            </button>
+              <button
+                mat-button
+                (click)="openMovieDirectorDialog(favorite.Director.ImagePath, favorite.Director.Name, favorite.Director.Birth, favorite.Director.Death, 
+                favorite.Director.Bio, favorite.Director.Source)"
+                [style.margin-right]="'0rem'"
+                [style.margin-top]="'0rem'"
+                [style.padding]="'0'"
+                [style.background-color]="'white'"
+                [style.color]="'blue'"  
+              >
+                Director
+              </button>
                 <button
                   mat-button
                   (click)="openMovieGenreDialog(favorite.Genre.ImagePath, favorite.Genre.Name, 
                   favorite.Genre.Description, favorite.Genre.Source) "
+                  [style.margin-right]="'0rem'"
+                  [style.margin-top]="'0rem'"
+                  [style.padding]="'0'"
+                  [style.background-color]="'white'"
+                  [style.color]="'blue'"   
                 >
                   Genre
                 </button>
-                <button
-                  mat-button
-                  (click)="openMovieDirectorDialog(favorite.Director.ImagePath, favorite.Director.Name, favorite.Director.Birth, favorite.Director.Death, 
-                  favorite.Director.Bio, favorite.Director.Source)"
-                >
-                  Director
-                </button>
-                <button
-                  mat-button
-                  (click)="openMovieSynopsisDialog(favorite.Title, favorite.Description.Synopsis, favorite.Description.Source, favorite.Year, favorite.Rotten_Tomatoes_score)"
-                >
-                  Synopsis
-                </button>
+
+     
                 <mat-icon (click)="removeFavorite(favorite._id)" class="favorite-button-active"
-                [style.background-color]="'white'" [style.color]="'blue'">favorite</mat-icon>
+                [style.background-color]="'white'" [style.color]="'blue'" [style.margin-left]="'0.5rem'">favorite</mat-icon>
               </mat-card-actions>
             </mat-card>
-          </mat-grid-list>
         </div>
       </div>
     </div>

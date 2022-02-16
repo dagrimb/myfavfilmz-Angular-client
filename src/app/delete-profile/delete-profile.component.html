@@ -1,4 +1,7 @@
-<mat-card>
+<mat-card 
+  [style.height]="'95%'"
+  [style.padding-top]="'5rem'"
+>
     <mat-card-header
       [style.justify-content]="'center'"
       [style.margin-bottom]="'1rem'"
@@ -8,16 +11,21 @@
       </h2>
     </mat-card-header>
   <div mat-dialog-actions
-    [style.justify-content]="'center'"
+    [style.text-align]="'center'"
+    [style.display]="'inline'"
   >
+  <div>
     <button
       mat-raised-button
       [mat-dialog-close]="true"
       [style.background-color]="'blue'"
       [style.color]="'white'"
+      [style.margin-bottom]="'1rem'"
     >
     Close
     </button>
+  </div>
+  <div>
     <button
       mat-raised-button
       [style.background-color]="'red'"
@@ -26,5 +34,6 @@
     >
     Delete Account
     </button>
+  </div>
   </div>
   </mat-card>

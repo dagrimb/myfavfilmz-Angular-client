@@ -30,6 +30,7 @@ import { MovieDirectorComponent } from './movie-director/movie-director.componen
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const appRoutes: Routes = [ // define welcome routes that will point to components
   { path: 'welcome', component: WelcomePageComponent },
@@ -57,6 +58,7 @@ const appRoutes: Routes = [ // define welcome routes that will point to componen
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
+    FlexLayoutModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,

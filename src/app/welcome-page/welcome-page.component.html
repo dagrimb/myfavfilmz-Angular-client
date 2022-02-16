@@ -4,11 +4,11 @@
   [style.width]="'100%'"
   [style.display]="'flex'"
   [style.justify-content]="'center'"
-  [style.background-color]="'#1976D2'"
+  [style.background-color]="'blue'"
   [style.text-align]="'center'"
 >
   <div 
-    [style.width]="'55%'"
+    [style.width]="'30rem'"
     [style.margin]="'auto'"
     [style.margin-top]="'14rem'"
   >
@@ -16,12 +16,14 @@
       [style.height]="'20rem'"
       [style.padding-top]="'5rem'"
       [style.border-radius]="'0.5rem'"
-      [style.background-color]="'gray'"
+      [style.background-color]="'black'"
       [style.color]="'white'"
     >
       <mat-card-header
         [style.margin-bottom]="'5rem'"
         [style.font-size]="'2rem'"
+        [style.justify-content]="'center'"
+        [style.margin-right]="'2rem'"
       >
         Welcome to myfavfilmz!
       </mat-card-header>
@@ -30,9 +32,9 @@
           mat-raised-button
           (click)="openUserRegistrationDialog()"
           style="margin-right: 1rem;"
-          [style.background-color]="'#1976D2'"
+          [style.background-color]="'blue'"
           [style.color]="'white'"
-
+          [style.width]="'10rem'"
         >
           Sign Up
         </button>
@@ -40,8 +42,9 @@
           mat-raised-button
           (click)="openUserLoginDialog()"
           style="margin-right: 1rem;"
-          [style.background-color]="'#1976D2'"
+          [style.background-color]="'blue'"
           [style.color]="'white'"
+          [style.width]="'10rem'"
         >
           Login
         </button>

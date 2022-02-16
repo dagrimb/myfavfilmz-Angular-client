@@ -47,15 +47,15 @@ export class UserProfileComponent implements OnInit {
 
 openEditProfileDialog(): void {
   this.dialog.open(EditProfileComponent, {
-    height: '400px',
-    width: '600px'
+    height: '26rem',
+    width: '39rem'
   });
 }
 
 openDeleteProfileDialog(): void {
   this.dialog.open(DeleteProfileComponent, {
-    height: '400px',
-    width: '600px'
+    height: '26rem',
+    width: '39rem'
   });
 }
 

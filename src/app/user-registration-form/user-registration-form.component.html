@@ -1,6 +1,13 @@
 <mat-card>
-  <mat-card-header>
-    <mat-card-title>Sign Up!</mat-card-title>
+  <mat-card-header
+    [style.text-align]="'center'"
+    [style.color]="'blue'"
+  >
+    <mat-card-title [style.font-size]="'1.5rem'">Sign Up!</mat-card-title>
+    <mat-card-subtitle 
+      [style.color]="'blue'"
+      [style.margin-top]="'1rem'"
+      >We will never share your username, password, email or birthdate with a third-party.</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content
     style="font-size: 1rem;"
@@ -57,7 +64,7 @@
     <button
       mat-raised-button
       (click)="registerUser()"
-      [style.background-color]="'#1976D2'"
+      [style.background-color]="'blue'"
       [style.color]="'white'"
     >
       Sign Up

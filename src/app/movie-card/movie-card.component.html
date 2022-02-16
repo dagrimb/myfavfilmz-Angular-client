@@ -1,50 +1,64 @@
+
 <app-user-navigation></app-user-navigation>
+<div [style.background-color]="'black'">
+  <div fxLayout="row wrap" fxLayoutGap="grid">
 <div 
-  [style.display]="'flex'" 
   [style.margin]="'auto'"
-  [style.max-width]="'75%'"
+  *ngFor="let movie of movies;"
+  fxFlex.xs="100%" 
+  fxFlex.sm="50%"
+  fxFlex.md="33%"
+  fxFlex.lg="25%"
+  [style.margin-top]="'1rem'"
 >
-  <mat-card *ngFor="let movie of movies;" 
-    [style.margin]="'8rem 0rem'"
-    [style.padding]="'5rem'"
+  <mat-card 
     [style.text-align]="'center'"
     [style.background-color]="'black'"
+    [style.margin-top]="'12rem'"
   >
-    <mat-card-header style="margin-bottom: 1rem">
+    <mat-card-header 
+      [style.margin-bottom]="'1rem'"
+      [style.justify-content]="'center'"
+    >
       <mat-card-title 
         [style.border-bottom]="'0.15rem solid blue'"
         [style.line-height]="'1.5'"
         [style.color]="'white'"
       >{{movie.Title}}
       </mat-card-title>
-      <mat-card-subtitle [style.color]="'white'" [style.width]="'175px'">Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+      <mat-card-subtitle [style.color]="'white'" [style.width]="'20rem'">Directed by: {{movie.Director.Name}}</mat-card-subtitle>
     </mat-card-header>
   <mat-card-content 
     [style.display]="'flex'"
     [style.align-items]="'center'"
     [style.color]="'blue'"
     [style.height]="'50%'"
-    [style.width]="'80%'"
+    [style.width]="'100%'"
+    fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center"
   >
-    <div style="height: 100%"></div>
+    <div></div>
     <img
       src={{movie.ImagePath}} 
-      alt={{movie.Title}} [style.width.%]="100" [style.height.%]="100"/>
+      alt={{movie.Title}} [style.width.%]="70" [style.height]="'20rem'"
+      [style.align-self]="'center'"
+      />
   </mat-card-content>
   <mat-card-actions 
     [style.box-shadow]="'0 2px 3px #222'"
     [style.min-width]="'350px'"
   >
     <button
-      mat-button
-      (click)="openMovieGenreDialog(movie.Genre.ImagePath, movie.Genre.Name, movie.Genre.Description, movie.Genre.Source) "
-      [style.margin-right]="'0rem'"
-      [style.margin-top]="'0rem'"
-      [style.background-color]="'white'"
-      [style.color]="'blue'"      
+    mat-button
+    (click)="openMovieSynopsisDialog(movie.Title, movie.Description.Synopsis, movie.Description.Source, movie.Year, 
+    movie.Rotten_Tomatoes_score)"
+    [style.margin-right]="'0rem'"
+    [style.margin-top]="'0rem'"
+    [style.padding]="'0'"
+    [style.background-color]="'white'"
+    [style.color]="'blue'"    
     >
-    Genre
-    </button>
+  Synopsis
+  </button>
     <button
       mat-button
       (click)="openMovieDirectorDialog(movie.Director.ImagePath, movie.Director.Name, movie.Director.Birth, movie.Director.Death, 
@@ -59,20 +73,20 @@
     </button>
     <button
     mat-button
-    (click)="openMovieSynopsisDialog(movie.Title, movie.Description.Synopsis, movie.Description.Source, movie.Year, 
-    movie.Rotten_Tomatoes_score)"
+    (click)="openMovieGenreDialog(movie.Genre.ImagePath, movie.Genre.Name, movie.Genre.Description, movie.Genre.Source) "
     [style.margin-right]="'0rem'"
     [style.margin-top]="'0rem'"
-    [style.padding]="'0'"
     [style.background-color]="'white'"
-    [style.color]="'blue'"    
-    >
-  Synopsis
-</button>
+    [style.color]="'blue'"      
+  >
+  Genre
+  </button>
   <mat-icon *ngIf="!favoriteMovie(movie._id)" (click)="addUserFavorite(movie._id)" class="favorite-button"
-  [style.background-color]="'white'">favorite_border</mat-icon>
+  [style.background-color]="'white'" [style.margin-left]="'0.5rem'">favorite_border</mat-icon>
   <mat-icon *ngIf="favoriteMovie(movie._id)" (click)="removeUserFavorite(movie._id)" class="favorite-button-active"
-  [style.background-color]="'white'" [style.color]="'blue'">favorite</mat-icon>
+  [style.background-color]="'white'" [style.color]="'blue'" [style.margin-left]="'0.5rem'">favorite</mat-icon>
 </mat-card-actions>
 </mat-card>
+</div>
+</div>
 </div>

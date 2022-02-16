@@ -31,7 +31,7 @@ loginUser(): void {
     localStorage.setItem('token', response.token);
     this.dialogRef.close(); // close modal on success
     console.log(response);
-    this.snackBar.open('user logged in succuessfully', 'OK', {
+    this.snackBar.open('You have successfully logged in', 'OK', {
       duration: 2000,
     });
     this.router.navigate(['movies']);

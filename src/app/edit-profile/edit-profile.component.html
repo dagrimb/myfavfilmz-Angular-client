@@ -1,12 +1,14 @@
 <mat-card
-  [style.padding]="'1rem 3rem'"
+  [style.text-align]="'center'"
+  [style.color]="'blue'"
 >
 <mat-card-header
   [style.justify-content]="'center'"
-  [style.margin-bottom]="'1rem'"
 >
   <mat-card-title>Update Your Info Below</mat-card-title>
-  <mat-card-subtitle>Please complete ALL fields, including whatever you would like to change, below.</mat-card-subtitle>
+  <mat-card-subtitle
+    [style.color]="'blue'"
+  >Please complete ALL fields, including whatever you would like to change, below.</mat-card-subtitle>
 </mat-card-header>
 <mat-card-content>
   <form
@@ -66,11 +68,11 @@
   </form>
 </mat-card-content>
 </mat-card>
-<mat-card-actions [style.text-align]="'center'">
+<mat-card-actions [style.text-align]="'center'" [style.margin-top]="'0.5rem'">
   <button
     mat-raised-button
     color="primary"
-    [style.background-color]="'blue'"
+    [style.background-color]="'green'"
     [style.color]="'white'"
     (click)="editUserInfo()"
   >
