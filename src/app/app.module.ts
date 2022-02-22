@@ -1,3 +1,9 @@
+/**
+ * This file is the entry point of the application: where logic that links component and services (the latter within the former via injection) is housed. 
+ * It is also used to define routes that users will navigate to thanks to functionality provided within respective TypeScript components connected with their own HTML templates.
+ */
+
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,12 +38,17 @@ import { DeleteProfileComponent } from './delete-profile/delete-profile.componen
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-const appRoutes: Routes = [ // define welcome routes that will point to components
+/**
+ * Here routes that point to components are defined for user to seamlessly navigate between views.
+ */
+
+const appRoutes: Routes = [ 
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: 'user', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
+
 
 @NgModule({
   declarations: [
