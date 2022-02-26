@@ -27,8 +27,12 @@ TECHNOLOGIES USED
   * Webpack: the build environment that Angular comes with.
  
 SETTING UP THE DEVELOPMENT ENVIRONMENT: What you will need
+* A computer with a web browser 
+* Wifi or a LAN connection
+* A terminal (MacOS) or Command Line Interface (CLI, for PC users).
+* Code Editor (if you are to engage and experiment with the code on your own)
 
-DEPENDENCIES/LIBRARIES NEEDED (Note: This is not an exhaustive list of dependencies. Please refer to the **package.lock.json"** for a detailed list of dependencies in order to re-build the app)
+DEPENDENCIES/LIBRARIES NEEDED (Please refer to the **package.lock.json"** for a detailed list of dependencies in order to re-build the app)
 
 WHAT YOUR **package.json** SHOULD LOOK LIKE
 
@@ -79,17 +83,24 @@ WHAT YOUR **package.json** SHOULD LOOK LIKE
 
 DOWNLOADS/INSTALATIONS
 * Node Package Manager: **npm install**
+  * To install Angular, please make sure that you have the most up-to-date version of Node.js and the npm package manager.
+    * To verify Node.js use the command **node -v**
+    * To verify npm -v use the command **npm -v**
 * Angular: **npm install -g @angular/cli@latest**
   * See if your computer has Angular downloaded with the following command: **ng --version**. You should see the following upon running this:
  
 <img src"https://user-images.githubusercontent.com/74441727/155828107-485c4d83-d20e-4dae-9635-2eaaa4b1365c.png" width=600>
+
+* Angular Material: **ng add @angular/material**
+  * Choose "custom" when selecting a theme. Then type "Yes" and hit enter.
+
 
 TO RUN THE PROJECT
 * Download the project and, in your terminal or CLI, navigate to the main (i.e. **myfavfilmz-Angular-client**) project directory
 * Run the client application using the following command: **ng serve**
 
 FURTHER INFORMATION: Documentation
-* For more information on this project, please review the documentation by naviating (either via your terminal/CLI or manually to the appropriate folder on your computer), find the "out" folder and open the appropriate .html file in a web browser.
+* For more information on this project, please review the documentation (written in Typedoc) by navigating (either via your terminal/CLI or manually to the appropriate folder on your computer), find the "out" folder and open the appropriate .html file in a web browser.
 
 Built By: David Grimberg
 
