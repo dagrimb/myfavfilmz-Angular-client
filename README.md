@@ -89,7 +89,7 @@ DOWNLOADS/INSTALATIONS
 * Angular: **npm install -g @angular/cli@latest**
   * See if your computer has Angular downloaded with the following command: **ng --version**. You should see the following upon running this:
  
-<img src"https://user-images.githubusercontent.com/74441727/155828107-485c4d83-d20e-4dae-9635-2eaaa4b1365c.png" width=600>
+<img src="https://user-images.githubusercontent.com/74441727/155828107-485c4d83-d20e-4dae-9635-2eaaa4b1365c.png" width=600>
 
 * Angular Material: **ng add @angular/material**
   * Choose "custom" when selecting a theme. Then type "Yes" and hit enter.
