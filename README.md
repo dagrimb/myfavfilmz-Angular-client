@@ -1,8 +1,9 @@
 # MyfavfilmzAngularClient
 
-myfavfilmz is a the client-side of a Single Page Application built on the MEAN stack, using the Angular.js library for the User Interface. The API was for built with Node.js and Express and the database with MongoDB (for more information regarding this side of the application, please visit https://github.com/dagrimb/myfavfilmz-api).
+myfavfilmz is a the client-side of a Single Page Application built on the MEAN stack, using the Angular.js library for a responsive User Interface. The API was for built with Node.js and Express and the database with MongoDB (for more information regarding this side of the application, please visit https://github.com/dagrimb/myfavfilmz-api).
 
 This application exists to allow movie fans the ability to register for an account and create a list of their favorite movies. Users are also able to find out more about these favorite movies, such as details about a movie's genre, director and score on Rotten Tomatoes. The API's endpoints and corresponding structure allows the following user behavior (with HTML component/TypeScript template pairs that can be found in the "src/app" folder in parentheses):
+  * Visitors are able to view a welcome message upon visiting the website, with an option to either register or log-in (welcome-page)
   * New users are able to register for a new account with a username, password, email address and birthday (user-registration-form)
   * Existing users are able to log into their accounts with their username and password (user-login-form) to do the following: 
     * Search and View a list of all movies in the movies collection with the ability to add or remove movies to/from their list of favorites from this view (movie-card)
@@ -19,7 +20,12 @@ This application exists to allow movie fans the ability to register for an accou
 <img src="https://user-images.githubusercontent.com/74441727/155824382-70b0cb4c-b798-46f7-88f4-593543e31cba.png" width=1000>
 
 TECHNOLOGIES USED
-
+* Angular.js: an popular, highly-opinionated, component-based framework for larger projects to be experienced on a range of desktop and mobile applications and devices. This version of the myfavfilmz application was created using the Angular CLI, which is a toolchain with routing ability made available for (in this case of this application) navigating between "welcome," "movies," and "user" routes in the application. For more information on Angular.js framework, please visit: https://angular.io/
+  * Angular Material: an Angular-specific UI component library. Much of the interactivity of the application is thanks to Angular Material, from the user registration and login forms to the informative dialogs that accompany each movie to the stylish buttons that open up profile edit and delete dialogs on the user's profile page.
+  * TypeScript: created by Microsoft, this is a strongly typed programming language that is a superset of and builds on JavaScript with syntax for types, used to develop JS apps across an entire stack.
+  * RxJS: a library used for developing with Angular. It allows events to be executed in such a way that improve the application's performance.
+  * Webpack: the build environment that Angular comes with.
+ 
 SETTING UP THE DEVELOPMENT ENVIRONMENT: What you will need
 
 DEPENDENCIES/LIBRARIES NEEDED (Note: This is not an exhaustive list of dependencies. Please refer to the **package.lock.json"** for a detailed list of dependencies in order to re-build the app)
@@ -72,6 +78,11 @@ WHAT YOUR **package.json** SHOULD LOOK LIKE
 }
 
 DOWNLOADS/INSTALATIONS
+* Node Package Manager: **npm install**
+* Angular: **npm install -g @angular/cli@latest**
+  * See if your computer has Angular downloaded with the following command: **ng --version**. You should see the following upon running this:
+ 
+<img src"https://user-images.githubusercontent.com/74441727/155828107-485c4d83-d20e-4dae-9635-2eaaa4b1365c.png" width=600>
 
 TO RUN THE PROJECT
 * Download the project and, in your terminal or CLI, navigate to the main (i.e. **myfavfilmz-Angular-client**) project directory
