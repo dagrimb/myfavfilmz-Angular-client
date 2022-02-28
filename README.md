@@ -12,8 +12,8 @@ This application exists to allow movie fans the ability to register for an accou
       * Movie Director Details (movie-director): A brief bio, birth year, death year (if applicable) of the movie's director
       * Movie Genre Details (movie-genre): A brief description of the movie's genre
     * Navigate to their user profile via a link on the user navigation bar (user-navigation) in order to do the following:
-      * View their existing user information (user-profile) as well as the movies the movies in their list of favorites (FaveMovies)
-      * Remove movies from their list of favorites (FaveMovies)
+      * View their existing user information (user-profile) as well as the movies the movies in their list of favorites (user-profile)
+      * Remove movies from their list of favorites (user-profile)
       * Edit the afforementioned user information via a form or dialog (edit-profile)
       * Delete their account (delete-profile)
 
