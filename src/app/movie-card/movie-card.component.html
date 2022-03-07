@@ -22,7 +22,7 @@ to open up synopsis, director info and genre info dialogs. -->
       [style.justify-content]="'center'"
     >
       <mat-card-title 
-        [style.border-bottom]="'0.15rem solid blue'"
+        [style.border-bottom]="'0.15rem solid #ADD8E6'"
         [style.line-height]="'1.5'"
         [style.color]="'white'"
       >{{movie.Title}}
@@ -55,8 +55,8 @@ to open up synopsis, director info and genre info dialogs. -->
     [style.margin-right]="'0rem'"
     [style.margin-top]="'0rem'"
     [style.padding]="'0'"
-    [style.background-color]="'white'"
-    [style.color]="'blue'"    
+    [style.background-color]="'#ADD8E6'"
+    [style.color]="'black'"    
     >
   Synopsis
   </button>
@@ -67,8 +67,8 @@ to open up synopsis, director info and genre info dialogs. -->
       [style.margin-right]="'0rem'"
       [style.margin-top]="'0rem'"
       [style.padding]="'0'"
-      [style.background-color]="'white'"
-      [style.color]="'blue'"    
+      [style.background-color]="'#ADD8E6'"
+      [style.color]="'black'"      
     >
       Director
     </button>
@@ -77,15 +77,15 @@ to open up synopsis, director info and genre info dialogs. -->
     (click)="openMovieGenreDialog(movie.Genre.ImagePath, movie.Genre.Name, movie.Genre.Description, movie.Genre.Source) "
     [style.margin-right]="'0rem'"
     [style.margin-top]="'0rem'"
-    [style.background-color]="'white'"
-    [style.color]="'blue'"      
+    [style.background-color]="'#ADD8E6'"
+    [style.color]="'black'"       
   >
   Genre
   </button>
   <mat-icon *ngIf="!favoriteMovie(movie._id)" (click)="addUserFavorite(movie._id)" class="favorite-button"
   [style.background-color]="'white'" [style.margin-left]="'0.5rem'">favorite_border</mat-icon>
   <mat-icon *ngIf="favoriteMovie(movie._id)" (click)="removeUserFavorite(movie._id)" class="favorite-button-active"
-  [style.background-color]="'white'" [style.color]="'blue'" [style.margin-left]="'0.5rem'">favorite</mat-icon>
+  [style.background-color]="'white'" [style.color]="'#ADD8E6'" [style.margin-left]="'0.5rem'">favorite</mat-icon>
 </mat-card-actions>
 </mat-card>
 </div>

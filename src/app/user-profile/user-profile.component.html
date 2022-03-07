@@ -69,10 +69,10 @@ Buttons opening profile edit/delete dialogs and navigating back to the homepage 
         <div [style.text-align]="'center'">
           <button
             mat-raised-button
-            [style.color]="'white'"
+            [style.color]="'black'"
             [style.width]="'30%'"
             [style.font-size]="'1rem'"
-            [style.background-color]="'blue'"
+            [style.background-color]="'#ADD8E6'"
             [style.margin-right]="'1rem'"
             (click)="openEditProfileDialog()"
           >
@@ -80,10 +80,10 @@ Buttons opening profile edit/delete dialogs and navigating back to the homepage 
           </button>
           <button
             mat-raised-button
-            [style.color]="'white'"
+            [style.color]="'black'"
             [style.width]="'30%'"
             [style.font-size]="'1rem'"
-            [style.background-color]="'blue'"
+            [style.background-color]="'#ADD8E6'"
             (click)="openDeleteProfileDialog()"
           >
           Delete Profile
@@ -93,8 +93,8 @@ Buttons opening profile edit/delete dialogs and navigating back to the homepage 
           <button 
             mat-raised-button
             [style.height]="'2rem'"
-            [style.background-color]="'blue'"
-            [style.color]="'white'"
+            [style.background-color]="'#ADD8E6'"
+            [style.color]="'black'"
             [style.margin-top]="'1rem'"
             (click)="backHome()"
           >Back to Home</button>
@@ -135,8 +135,8 @@ Buttons opening profile edit/delete dialogs and navigating back to the homepage 
               [style.margin-right]="'0rem'"
               [style.margin-top]="'0rem'"
               [style.padding]="'0'"
-              [style.background-color]="'white'"
-              [style.color]="'blue'"  
+              [style.background-color]="'#ADD8E6'"
+              [style.color]="'black'"    
               >
               Synopsis
             </button>
@@ -147,8 +147,8 @@ Buttons opening profile edit/delete dialogs and navigating back to the homepage 
                 [style.margin-right]="'0rem'"
                 [style.margin-top]="'0rem'"
                 [style.padding]="'0'"
-                [style.background-color]="'white'"
-                [style.color]="'blue'"  
+                [style.background-color]="'#ADD8E6'"
+                [style.color]="'black'"   
               >
                 Director
               </button>
@@ -159,15 +159,15 @@ Buttons opening profile edit/delete dialogs and navigating back to the homepage 
                   [style.margin-right]="'0rem'"
                   [style.margin-top]="'0rem'"
                   [style.padding]="'0'"
-                  [style.background-color]="'white'"
-                  [style.color]="'blue'"   
+                  [style.background-color]="'#ADD8E6'"
+                  [style.color]="'black'"   
                 >
                   Genre
                 </button>
 
      
                 <mat-icon (click)="removeFavorite(favorite._id)" class="favorite-button-active"
-                [style.background-color]="'white'" [style.color]="'blue'" [style.margin-left]="'0.5rem'">favorite</mat-icon>
+                [style.background-color]="'white'" [style.color]="'#ADD8E6'" [style.margin-left]="'0.5rem'">favorite</mat-icon>
               </mat-card-actions>
             </mat-card>
         </div>
